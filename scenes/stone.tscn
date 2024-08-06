@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://byppunp63vtuj"]
+
+[ext_resource type="Texture2D" uid="uid://cveh8xyrknqaf" path="res://sprites/meteorBrown_big3.png" id="1_50tlr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v2s50"]
+radius = 34.173
+height = 76.5258
+
+[node name="Stone" type="StaticBody2D"]
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_50tlr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 0)
+rotation = -1.28239
+shape = SubResource("CapsuleShape2D_v2s50")

@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://j1iawaq6egei"]
+
+[ext_resource type="Script" path="res://scenes/projectile.gd" id="1_a2dgk"]
+[ext_resource type="Texture2D" uid="uid://dwnbfu5ob6cc1" path="res://sprites/laserRed08.png" id="2_8pc5b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_av4cn"]
+radius = 6.67499
+
+[node name="Projectile" type="Area2D"]
+scale = Vector2(0.6, 0.6)
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1_a2dgk")
+speed = 600.0
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 3.14159
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_8pc5b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -0.333333)
+shape = SubResource("CircleShape2D_av4cn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

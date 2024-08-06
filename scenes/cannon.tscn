@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://dyutxsnlt6ki6"]
+
+[ext_resource type="Texture2D" uid="uid://l370sqhrpoyk" path="res://sprites/towerDefense_tile087.png" id="1_hd5be"]
+[ext_resource type="Script" path="res://scenes/cannon.gd" id="1_s2a2d"]
+[ext_resource type="PackedScene" uid="uid://j1iawaq6egei" path="res://scenes/projectile.tscn" id="2_1aq68"]
+[ext_resource type="Texture2D" uid="uid://8vpgkmypholb" path="res://sprites/towerDefense_tile249.png" id="4_idt7i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3m2fm"]
+size = Vector2(56, 57)
+
+[node name="Cannon" type="Area2D"]
+script = ExtResource("1_s2a2d")
+rotation_speed = 30.0
+projectile_scene = ExtResource("2_1aq68")
+
+[node name="BaseSprite" type="Sprite2D" parent="."]
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_hd5be")
+
+[node name="CannonSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("4_idt7i")
+offset = Vector2(0, -15)
+
+[node name="RayCast2D" type="RayCast2D" parent="CannonSprite"]
+target_position = Vector2(0, -250)
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_3m2fm")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

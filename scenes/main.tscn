@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkt3v1ckfdbu7"]
+
+[ext_resource type="PackedScene" uid="uid://dyutxsnlt6ki6" path="res://scenes/cannon.tscn" id="1_kutje"]
+[ext_resource type="PackedScene" uid="uid://cbt2w2ls2n7bx" path="res://scenes/player.tscn" id="2_kjasb"]
+[ext_resource type="PackedScene" uid="uid://byppunp63vtuj" path="res://scenes/stone.tscn" id="3_a5onb"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Cannon" parent="." instance=ExtResource("1_kutje")]
+position = Vector2(640, 360)
+
+[node name="Player" parent="." instance=ExtResource("2_kjasb")]
+position = Vector2(893, 255)
+
+[node name="Stone" parent="." instance=ExtResource("3_a5onb")]
+position = Vector2(760, 139)
+
+[node name="Stone2" parent="." instance=ExtResource("3_a5onb")]
+position = Vector2(842, 356)
+
+[node name="Stone3" parent="." instance=ExtResource("3_a5onb")]
+position = Vector2(638, 554)
+
+[node name="Stone4" parent="." instance=ExtResource("3_a5onb")]
+position = Vector2(430, 359)
+
+[node name="Stone5" parent="." instance=ExtResource("3_a5onb")]
+position = Vector2(531, 136)
